@@ -12,18 +12,24 @@ func _ready():
 	print("----------------")
 	print("")
 	
+	#percorrer a lista de portais para realizar as atribuições
 	for portal in lista_portais:
+		
+		#seta o portal inicial
 		print("portal: " + portal[0])
 		cur_portal = get_node(portal[0])
 		
+		#seta o portal alvo
 		print("vai para: " + portal[1])
 		next_portal = get_node(portal[1])
 		
+		#chama a função para atualizar os labels de cada portal
 		cur_portal.update_labels(cur_portal.name, "go-to: " + next_portal.name)
 		
-		print("----------------")
+		#atribui o próximo portal ao objeto portal
+		cur_portal.set_next_portal(next_portal)
 		
-		cur_portal.next_portal = next_portal
+		print("----------------")
 
 
 func _draw():
