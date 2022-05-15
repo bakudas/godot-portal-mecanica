@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://Entidades/Portal.gd" type="Script" id=1]
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Portal" type="Node2D"]
-script = ExtResource( 1 )
-cor = Color( 0.941176, 0.329412, 0, 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -32,7 +28,7 @@ margin_left = -32.0
 margin_top = 15.0
 margin_right = 32.0
 margin_bottom = 29.0
-text = "nome"
+text = "Portal"
 align = 1
 valign = 1
 autowrap = true

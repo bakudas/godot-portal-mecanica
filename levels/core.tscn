@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Entidades/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entidades/Portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entidades/PortalManager.gd" type="Script" id=3]
 [ext_resource path="res://assets/saida-spray.png" type="Texture" id=4]
+[ext_resource path="res://Entidades/Bullet2D.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
@@ -146,24 +147,27 @@ lista_portais = [ [ NodePath("Portal"), NodePath("Portal4") ], [ NodePath("Porta
 
 [node name="Portal" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 68, 367 )
-cor = Color( 0, 0.454902, 0.941176, 1 )
+script = null
 
 [node name="Portal2" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 650, 370 )
-cor = Color( 0.780392, 0.294118, 0.0313726, 1 )
+script = null
 
 [node name="Portal3" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 69, 232 )
-cor = Color( 0.0313726, 0.941176, 0, 1 )
+script = null
 
 [node name="Portal4" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 317, 232 )
-cor = Color( 0.537255, 0, 0.941176, 1 )
+script = null
 
 [node name="Portal5" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 649, 90 )
-cor = Color( 0, 0.898039, 0.941176, 1 )
+script = null
 
 [node name="Portal6" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 334, 368 )
-cor = Color( 0.847059, 0.941176, 0, 1 )
+script = null
+
+[node name="Bullet2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 446, 226 )
