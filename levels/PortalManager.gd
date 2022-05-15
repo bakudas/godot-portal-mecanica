@@ -17,6 +17,8 @@ func _ready():
 		print("vai para: " + portal[1])
 		var next_portal = get_node(portal[1])
 		
+		cur_portal.update_labels(cur_portal.name, "go-to: " + next_portal.name)
+		
 		print("----------------")
 		
 		cur_portal.next_portal = next_portal

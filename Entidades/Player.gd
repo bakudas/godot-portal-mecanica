@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 const GRAVIDADE:float = 9.8
 var jumping:bool = false
-var speed:float = 150
+var speed:float = 250
 var move:Vector2 = Vector2(0,0)
 var can_teleport:bool = true
 
