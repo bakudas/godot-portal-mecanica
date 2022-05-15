@@ -165,5 +165,5 @@ position = Vector2( 649, 90 )
 cor = Color( 0, 0.898039, 0.941176, 1 )
 
 [node name="Portal6" parent="PortalManager" instance=ExtResource( 2 )]
-position = Vector2( 316, 368 )
+position = Vector2( 334, 368 )
 cor = Color( 0.847059, 0.941176, 0, 1 )

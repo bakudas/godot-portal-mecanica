@@ -24,7 +24,6 @@ func _on_Area2D_body_entered(body):
 			if next_portal.position != null: body.position = next_portal.position # teleport
 
 
-
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		body.can_teleport = true # garantir que possa teleportar depois de sair de cima do portal
