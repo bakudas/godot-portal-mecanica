@@ -1,9 +1,11 @@
 tool
 extends Node2D
 
+
 export (Array, Array, NodePath) var lista_portais
 var cur_portal #portal base
 var next_portal #portal alvo
+
 
 func _ready():
 	
@@ -14,7 +16,6 @@ func _ready():
 	
 	## percorrer a lista de portais para realizar as atribuições
 	#lista_portais = [(porta, portal), (portal,portal)]
-	
 	for portal in lista_portais:
 		#como os indices funcionam
 		#[0] - portal base

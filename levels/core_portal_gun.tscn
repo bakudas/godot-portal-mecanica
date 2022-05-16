@@ -89,5 +89,5 @@ shape = SubResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 155, 393 )
 
-[node name="PortalManagerGun" type="Node2D" parent="."]
+[node name="PortalManagerGun" type="Node2D" parent="." groups=["PortalManager"]]
 script = ExtResource( 2 )

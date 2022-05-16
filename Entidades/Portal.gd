@@ -13,21 +13,19 @@ var next_portal:Node2D setget set_next_portal, get_next_portal
 var temp_next_portal:Node2D
 
 
-func _init(tipo, color):
-	tipo_portal = tipo
-	cor = color
-pass
+#func _init(tipo):
+#	tipo_portal = tipo
 
 
-#func _enter_tree():
+func _enter_tree():
+	$TXT_self.text = self.name
 #	update_tipo_portal(tipo_portal)
-##	muda_cor(cor) #set color to portal
+#	muda_cor(cor) #set color to portal
 #	set_next_portal(temp_next_portal)
-#	update_labels(self.name, next_portal)
 
 
-func update_tipo_portal(tipo_tiro):
-	tipo_portal = tipo_tiro
+func update_tipo_portal(enum_tipo_portal):
+	tipo_portal = enum_tipo_portal
 
 
 func _process(delta):
@@ -39,23 +37,41 @@ func _process(delta):
 
 #portal collider and check player entered
 func _on_Area2D_body_entered(body):
+
+	if is_in_group("PortalAzul"):
+		
+		# check player 
+		if body.is_in_group("Player"):
+			if body.can_teleport_to_blue:
+				# evita que ative o próximo portal
+				body.can_teleport_to_blue = false 
+				
+				# teleport
+				if get_tree().get_nodes_in_group("PortalLaranja")[0].position != null: 
+					body.position = get_tree().get_nodes_in_group("PortalLaranja")[0].position
 	
-	# check player 
-	if body.is_in_group("Player"):
-		if body.can_teleport:
-			# evita que ative o próximo portal
-			body.can_teleport = false 
-			
-			# teleport
-			if next_portal.position != null: 
-				body.position = next_portal.position
+	if is_in_group("PortalLaranja"):
+		# check player 
+		if body.is_in_group("Player"):
+			if body.can_teleport_to_orange:
+				# evita que ative o próximo portal
+				body.can_teleport_to_orange = false 
+				
+				# teleport
+				if get_tree().get_nodes_in_group("PortalAzul")[0].position != null: 
+					body.position = get_tree().get_nodes_in_group("PortalAzul")[0].position
 
 
 # garantir que possa teleportar depois de sair de cima do portal
 func _on_Area2D_body_exited(body):
-	if body.is_in_group("Player"):
-		body.can_teleport = true 
-
+	
+	if is_in_group("PortalAzul"):
+		if body.is_in_group("Player"):
+			body.can_teleport_to_blue = true 
+			
+	if is_in_group("PortalLaranja"):
+		if body.is_in_group("Player"):
+			body.can_teleport_to_orange = true 
 
 func set_next_portal(ref_next_port) -> void:
 	next_portal = ref_next_port

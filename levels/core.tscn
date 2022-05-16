@@ -147,27 +147,21 @@ lista_portais = [ [ NodePath("Portal"), NodePath("Portal4") ], [ NodePath("Porta
 
 [node name="Portal" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 68, 367 )
-script = null
 
 [node name="Portal2" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 650, 370 )
-script = null
 
 [node name="Portal3" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 69, 232 )
-script = null
 
 [node name="Portal4" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 317, 232 )
-script = null
 
 [node name="Portal5" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 649, 90 )
-script = null
 
 [node name="Portal6" parent="PortalManager" instance=ExtResource( 2 )]
 position = Vector2( 334, 368 )
-script = null
 
 [node name="Bullet2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 446, 226 )
