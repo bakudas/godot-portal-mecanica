@@ -37,24 +37,24 @@ func _on_Bullet2D_body_entered(body):
 		
 		match tipo:
 			tipo_tiro.azul:
-				var temp_portal_azul = portal.instance()
-				root.add_child(temp_portal_azul)
+				portal_azul = portal.instance()
+				root.add_child(portal_azul)
 				
-				temp_portal_azul.get_child(1).color = "#0085f0"
-				temp_portal_azul.transform = global_transform
-				temp_portal_azul.add_to_group("PortalAzul")
+				portal_azul.get_child(1).color = "#0085f0"
+				portal_azul.transform = global_transform
+				portal_azul.add_to_group("PortalAzul")
 				
 				get_tree().call_group("PortalManager", "update_portal_azul")
 				get_tree().call_group("Player", "toggle_teleport_blue")
 
 				
 			tipo_tiro.laranja:
-				var temp_portal_laranja = portal.instance()
-				root.add_child(temp_portal_laranja)
+				portal_laranja = portal.instance()
+				root.add_child(portal_laranja)
 				
-				temp_portal_laranja.get_child(1).color = "#f05400"
-				temp_portal_laranja.transform = global_transform
-				temp_portal_laranja.add_to_group("PortalLaranja")
+				portal_laranja.get_child(1).color = "#f05400"
+				portal_laranja.transform = global_transform
+				portal_laranja.add_to_group("PortalLaranja")
 				
 				get_tree().call_group("PortalManager", "update_portal_laranja")
 

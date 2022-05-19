@@ -19,9 +19,8 @@ var temp_next_portal:Node2D
 
 func _enter_tree():
 	$TXT_self.text = self.name
-#	update_tipo_portal(tipo_portal)
-#	muda_cor(cor) #set color to portal
-#	set_next_portal(temp_next_portal)
+#	print(get_tree().get_nodes_in_group("PortalAzul")[0])
+#	print(get_tree().get_nodes_in_group("PortalLaranja")[0])
 
 
 func update_tipo_portal(enum_tipo_portal):
@@ -67,15 +66,16 @@ func _on_Area2D_body_exited(body):
 	
 	if is_in_group("PortalAzul"):
 		if body.is_in_group("Player"):
-			body.can_teleport_to_blue = true 
-			
-	if is_in_group("PortalLaranja"):
-		if body.is_in_group("Player"):
 			body.can_teleport_to_orange = true 
 
+	if is_in_group("PortalLaranja"):
+		if body.is_in_group("Player"):
+			body.can_teleport_to_blue = true 
+	pass
+
+
 func set_next_portal(ref_next_port) -> void:
-	next_portal = ref_next_port
-	#update_labels(self.name, ref_next_port.name)
+	pass
 
 
 func get_next_portal() -> Node2D:
@@ -83,10 +83,15 @@ func get_next_portal() -> Node2D:
 
 
 #update labels portais
-func update_labels(var nome_portal, var nome_next_portal) -> void:
-	$TXT_self.text = nome_portal
-	if next_portal!=null:
-		$TXT_go_to.text = nome_next_portal
+func update_labels() -> void:
+	if is_in_group("PortalAzul"):
+		$TXT_self.text = get_tree().get_nodes_in_group("PortalAzul")[0].name
+		$TXT_go_to.text = "go-to: " + get_tree().get_nodes_in_group("PortalLaranja")[0].name
+			
+
+	if is_in_group("PortalLaranja"):
+		$TXT_self.text = get_tree().get_nodes_in_group("PortalLaranja")[0].name
+		$TXT_go_to.text = "go-to: " + get_tree().get_nodes_in_group("PortalAzul")[0].name
 
 
 func muda_cor(cor):
